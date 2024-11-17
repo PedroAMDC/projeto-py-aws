@@ -4,6 +4,8 @@ from flask_login import LoginManager
 
 from src.routes.AppRoutes import AppRoutes
 from src.routes.UsersRoutes import UsersRoutes
+from src.routes.PostsRoutes import PostsRoutes
+
 
 from database import db
 
@@ -24,6 +26,8 @@ def create_app(config_class=Config):
 
     app.register_blueprint(AppRoutes, url_prefix='/')
 
-    app.register_blueprint(UsersRoutes, url_prefix='/users')
+    app.register_blueprint(UsersRoutes, url_prefix='/users/')
+
+    app.register_blueprint(PostsRoutes, url_prefix='/posts/')
 
     return app 
