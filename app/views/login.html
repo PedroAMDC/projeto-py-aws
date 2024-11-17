@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Login no Photoblog{% endblock %}
+{% block css %}<link href={{  url_for('static', filename='css/login.css') }} rel="stylesheet">{% endblock %}
+{% block content %}
+<body class="container text-center col-6">
+    <form class="form-signin" action={{  url_for('app_routes.login') }} method="POST">
+        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+        <label for="inputEmail" class="sr-only">E-mail</label>
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="seu@email.com" required="" autofocus="" wfd-id="id0">
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="********" required="" wfd-id="id1">
+        <!--div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me" wfd-id="id2"> Remember me
+            </label>
+        </div -->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        <p class="mt-5 mb-3 text-muted">Ainda não tem uma conta?<a href={{ url_for('users_routes.create')}}>Cadastre-se</a></p>
+    </form>
+</body>
+{% endblock %}
+{% block js %}{% endblock %}
