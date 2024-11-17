@@ -2,7 +2,7 @@
 {% block title %}Criar post{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<form action={{  url_for('posts_routes.create') }} method="post">
+<form action={{  url_for('posts_routes.create') }} method="post" enctype="multipart/form-data">
     <div class="container w-50">
 
         <div class="text-center">
