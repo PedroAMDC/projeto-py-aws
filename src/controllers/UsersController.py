@@ -1,4 +1,5 @@
-from flask import render_template, request
+from flask import render_template, request, redirect
+from flask_login import current_user
 from src.models.UsersModel import User, db
 
 def create():
@@ -21,9 +22,10 @@ def create():
         db.session.add(user)
         db.session.commit()
         # TO DO CRIAR PRERSISTENCIA DOS DADOS
-        return "Usuário criado com sucesso"
+        return redirect(url_for('app_routes.logout'))
     
-    return render_template('users/create.html')
+    return render_template('users/create.html',
+                           currentuser = current_user)
 
 def read():
     return "metodo de leitura e exibição dos dados"
